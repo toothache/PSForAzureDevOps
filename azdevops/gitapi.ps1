@@ -5,7 +5,7 @@ function CreateHTTPHeadersWithOAuth() {
         [string] $token
     )
 
-    return @{Authorization = ("Bearer {0}" -f $token)}
+    return @{"Authorization" = ("Bearer {0}" -f $token)}
 }
 
 function CreateHTTPHeadersWithPAT() {
@@ -123,7 +123,6 @@ function CreateNewBranch() {
         $headers,
         $name,
         $oldObjectId,
-        $comment,
         $commit
     )
 
