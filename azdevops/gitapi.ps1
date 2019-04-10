@@ -126,7 +126,7 @@ function CreateNewBranch() {
         $commit
     )
     
-    if (-not $headers.Keys -contains "Content-Type") {
+    if (-not ($headers.Keys -contains "Content-Type")) {
         $headers.Add("Content-Type", "application/json")
     }
 
@@ -176,7 +176,7 @@ function SubmitPullRequest() {
         $autocomplete = $false
     )
 
-    if (-not $headers.Keys -contains "Content-Type") {
+    if (-not ($headers.Keys -contains "Content-Type")) {
         $headers.Add("Content-Type", "application/json")
     }
 
