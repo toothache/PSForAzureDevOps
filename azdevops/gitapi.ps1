@@ -125,8 +125,10 @@ function CreateNewBranch() {
         $oldObjectId,
         $commit
     )
-
-    $headers.Add("Content-Type", "application/json")
+    
+    if (-not $headers.Keys -contains "Content-Type") {
+        $headers.Add("Content-Type", "application/json")
+    }
 
     $newBranchRefName = "refs/heads/$name"
     # Json for creating a new branch
@@ -174,7 +176,9 @@ function SubmitPullRequest() {
         $autocomplete = $false
     )
 
-    $headers.Add("Content-Type", "application/json")
+    if (-not $headers.Keys -contains "Content-Type") {
+        $headers.Add("Content-Type", "application/json")
+    }
 
     # Create a Pull Request
     $pullRequestUrl = "$projectUrl/pullRequests?api-version=$apiVersion"
