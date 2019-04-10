@@ -39,3 +39,12 @@ function GetPackageDependenciesFromProjectAssets() {
     $dependencies = GetDependenciesFromTargets "$packageName/$packageVersion" $targets
     return $dependencies
 }
+
+function GetPackagesRootPath() {
+    param(
+        $projectAssetsFile
+    )
+
+    $jobj = Get-Content $projectAssetsFile | ConvertFrom-Json
+    return $jobj.project.restore.packagesPath
+}
